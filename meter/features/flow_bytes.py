@@ -1,8 +1,8 @@
 from scapy.layers.inet import IP, TCP
 from scapy.layers.l2 import Ether
 
-from meter.features.context.packet_direction import PacketDirection
-from meter.features.packet_time import PacketTime
+from features.context.packet_direction import PacketDirection
+from features.packet_time import PacketTime
 
 
 class FlowBytes:
@@ -19,7 +19,8 @@ class FlowBytes:
 
         """
         feat = self.feature
-        direction_list = [(i, direction.name)[1] for (i, (packet, direction)) in enumerate(feat.packets) if i < 50]
+        direction_list = [(i, direction.name)[1] for (
+            i, (packet, direction)) in enumerate(feat.packets) if i < 50]
         return direction_list
 
     def get_bytes_sent(self) -> int:

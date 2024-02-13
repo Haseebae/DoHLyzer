@@ -3,8 +3,8 @@ import os
 
 from scapy.layers.tls.record import TLSApplicationData
 
-from meter import constants
-from meter.features.context.packet_direction import PacketDirection
+import constants
+from features.context.packet_direction import PacketDirection
 
 
 class Clump:
@@ -53,7 +53,8 @@ class FlowClumpsContainer:
                 latest_clump_end_timestamp = c.first_timestamp
             count += 1
             results.append([
-                float(c.first_timestamp - latest_clump_end_timestamp),  # inter-arrival duration
+                # inter-arrival duration
+                float(c.first_timestamp - latest_clump_end_timestamp),
                 float(c.duration()),
                 c.size,
                 c.packets,
