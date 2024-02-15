@@ -6,7 +6,6 @@ RUN apt-get update && apt-get install -y \
     tcpdump 
 RUN ln -s /usr/bin/python3.5 /usr/local/bin/python
 RUN ln -s /usr/bin/pip3 /usr/local/bin/pip
-WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip
 RUN pip install libpcap
