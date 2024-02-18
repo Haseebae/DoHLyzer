@@ -37,6 +37,9 @@ class FlowSession(DefaultSession):
         return super(FlowSession, self).toPacketList()
 
     def on_packet_received(self, packet):
+        if not packet.haslayer('IP'):
+            return
+        
         count = 0
         direction = PacketDirection.FORWARD
 
